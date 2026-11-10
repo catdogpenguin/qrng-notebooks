@@ -134,3 +134,27 @@ After setup, running the notebooks gives the following layout. `qiskit-env/`, th
 ```
 
 Every notebook saves its files when `SAVE_RESULTS = True` in its setup cell (1. for C1–C3, Toeplitz, and Trevisan; 2. for SP800_90B and SP800_22). Section 5.9 of C1–C3 (the experiment that changes the noise strength step by step) produces a lot of data, so it is saved only when a separate switch, `SAVE_SWEEP = True`, is set. Both default to `False`, which saves nothing. When saving, a new folder named after the date and time the setup cell was run is created, so earlier results are never overwritten. The contents of each date-and-time folder (per-experiment folders, file naming, CSV columns, and so on) are described in "Saved files" under "How to use this notebook" in each notebook.
+
+## References
+
+The notebooks are based on the following papers and standards. Each notebook cites the sources it uses.
+
+- A. Gnatowski *et al.*, "True Random Number Generators on IQM Spark," arXiv:2512.09862 (2025). — the C1–C3 circuits and the noise parameters (C1–C3 notebooks)
+- M. S. Turan, E. Barker, J. Kelsey, K. A. McKay, M. L. Baish, and M. Boyle, "Recommendation for the Entropy Sources Used for Random Bit Generation," NIST Special Publication 800-90B (2018). — min-entropy assessment (SP800_90B notebook)
+- L. E. Bassham III *et al.*, "A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications," NIST Special Publication 800-22 Revision 1a (2010). — statistical tests (SP800_22 notebook)
+- X. Ma, F. Xu, H. Xu, X. Tan, B. Qi, and H.-K. Lo, "Postprocessing for quantum random-number generators: Entropy evaluation and randomness extraction," *Phys. Rev. A* **87**, 062327 (2013); arXiv:1207.1473. — Toeplitz-hashing extractor (Toeplitz notebook)
+- W. Mauerer, C. Portmann, and V. B. Scholz, "A modular framework for randomness extraction based on Trevisan's construction," arXiv:1212.0520 (2012). — Trevisan's extractor (Trevisan notebook)
+- M. Tomamichel, C. Schaffner, A. Smith, and R. Renner, "Leftover Hashing Against Quantum Side Information," *IEEE Trans. Inf. Theory* **57**, 5524 (2011). — extraction with quantum side information (Toeplitz notebook)
+
+Official tools (not included in this repository):
+
+- NIST Statistical Test Suite (STS) 2.1.2: <https://csrc.nist.gov/projects/random-bit-generation/documentation-and-software>
+- SP800-90B_EntropyAssessment (`ea_non_iid`): <https://github.com/usnistgov/SP800-90B_EntropyAssessment>
+
+## Disclaimer
+
+- This repository is an independent set of educational notebooks. It is not affiliated with, endorsed by, or reviewed by the authors of the papers above, NIST, or IQM.
+- The circuits are reimplemented from the descriptions in the papers, and all results are obtained with the Qiskit Aer simulator, not with real quantum hardware. The noise models are chosen for these notebooks and are not the authors' models, so the results do not reproduce the experimental results of the papers.
+- Simulator output is generated from classical pseudorandom numbers. The bit strings produced by these notebooks are not true random numbers and must not be used for cryptography or any other security purpose.
+- The official NIST tools are not included in this repository. Download them from the sources above; they are subject to their own terms.
+- The code and text in this repository are provided under the MIT License (see `LICENSE`), without warranty of any kind.

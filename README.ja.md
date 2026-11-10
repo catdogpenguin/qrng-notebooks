@@ -134,3 +134,27 @@ jupyter lab
 ```
 
 どのノートブックも、準備のセル（C1〜C3・Toeplitz・Trevisan は 1.、SP800_90B・SP800_22 は 2.）の `SAVE_RESULTS = True` で保存します。C1〜C3 の 5.9（ノイズの強さを段階的に変える実験）は保存量が多いので、別のスイッチ `SAVE_SWEEP = True` のときだけ保存します。既定はどちらも `False` で、何も保存しません。保存するときは、準備のセルを実行した日時の名前のフォルダを新しく作るので、前の結果を上書きしません。日時のフォルダの中身（実験ごとのフォルダ、ファイル名の付け方、CSV の列など）は、各ノートブックの「使い方（How to use this notebook）」の「保存されるファイル（Saved files）」に書いてあります。
+
+## 参考文献
+
+ノートブックは、次の論文と規格にもとづいています。それぞれのノートブックにも、使った出典を書いています。
+
+- A. Gnatowski *et al.*, "True Random Number Generators on IQM Spark," arXiv:2512.09862 (2025). — C1〜C3 の回路とノイズのパラメータ（C1〜C3 のノートブック）
+- M. S. Turan, E. Barker, J. Kelsey, K. A. McKay, M. L. Baish, and M. Boyle, "Recommendation for the Entropy Sources Used for Random Bit Generation," NIST Special Publication 800-90B (2018). — min-entropy の評価（SP800_90B のノートブック）
+- L. E. Bassham III *et al.*, "A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications," NIST Special Publication 800-22 Revision 1a (2010). — 統計的検定（SP800_22 のノートブック）
+- X. Ma, F. Xu, H. Xu, X. Tan, B. Qi, and H.-K. Lo, "Postprocessing for quantum random-number generators: Entropy evaluation and randomness extraction," *Phys. Rev. A* **87**, 062327 (2013); arXiv:1207.1473. — Toeplitz-hashing extractor（Toeplitz のノートブック）
+- W. Mauerer, C. Portmann, and V. B. Scholz, "A modular framework for randomness extraction based on Trevisan's construction," arXiv:1212.0520 (2012). — Trevisan's extractor（Trevisan のノートブック）
+- M. Tomamichel, C. Schaffner, A. Smith, and R. Renner, "Leftover Hashing Against Quantum Side Information," *IEEE Trans. Inf. Theory* **57**, 5524 (2011). — 量子的な side information がある場合の抽出（Toeplitz のノートブック）
+
+公式ツール（このリポジトリには含めていません）：
+
+- NIST Statistical Test Suite（STS）2.1.2：<https://csrc.nist.gov/projects/random-bit-generation/documentation-and-software>
+- SP800-90B_EntropyAssessment（`ea_non_iid`）：<https://github.com/usnistgov/SP800-90B_EntropyAssessment>
+
+## 免責事項
+
+- このリポジトリは、独立して作成した教材のノートブック集です。上の論文の著者、NIST、IQM とは関係がなく、それらの承認や確認を受けたものではありません。
+- 回路は論文の記述をもとに実装し直したもので、結果はすべて Qiskit Aer のシミュレータで得たものです（実機ではありません）。ノイズモデルはこのノートブックで選んだもので、論文の著者のモデルではないので、結果は論文の実験結果を再現するものではありません。
+- シミュレータの出力は、古典コンピュータの擬似乱数から作られます。このノートブックで得たビット列は真の乱数ではなく、暗号やその他のセキュリティの用途に使ってはいけません。
+- NIST の公式ツールは、このリポジトリに含めていません。上の配布元から取得してください。ツールにはそれぞれの利用条件があります。
+- このリポジトリのコードと文章は MIT License（`LICENSE` を参照）で提供し、いかなる保証もしません。
