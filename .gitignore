@@ -1,0 +1,15 @@
+# Python の仮想環境
+qiskit-env/
+.venv/
+
+# 公式ツール（README の手順で各自ダウンロードしてビルドする）
+sts-2.1.2/
+sts-2_1_2.zip
+SP800-90B_EntropyAssessment/
+
+# ノートブックの出力
+results/
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
