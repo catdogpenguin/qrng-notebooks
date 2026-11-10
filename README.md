@@ -42,7 +42,7 @@ sudo apt install -y git curl unzip build-essential python3.12-venv \
 ### 2. Get the repository
 
 ```bash
-git clone <URL of this repository> qrng-notebooks
+git clone https://github.com/catdogpenguin/qrng-notebooks.git
 cd qrng-notebooks
 ```
 
